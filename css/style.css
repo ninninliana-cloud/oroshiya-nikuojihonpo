@@ -1,64 +1,171 @@
 body{
+
 margin:0;
-font-family:sans-serif;
-color:#222;
-background:white;
+font-family:serif;
+color:#111;
+
 }
+
+
+/* header */
+
+.header{
+
+position:fixed;
+top:0;
+width:100%;
+height:80px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:0 40px;
+
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(10px);
+
+z-index:10;
+
+}
+
+.nav a{
+
+margin-left:30px;
+text-decoration:none;
+color:black;
+
+}
+
 
 /* hero */
 
 .hero{
-height:90vh;
-background:url("../images/hero.jpg") center/cover no-repeat;
+
+height:100vh;
+
+background:url("../images/hero.jpg") center/cover;
 
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
+
 text-align:center;
+
 }
 
-.hero-text{
-color:white;
-background:rgba(0,0,0,0.3);
-padding:40px;
-}
+.hero h1{
 
-.hero-text h1{
 font-size:60px;
-margin:0;
+
+color:white;
+
 }
 
-.hero-text p{
-font-size:20px;
-margin-top:10px;
+.hero p{
+
+color:white;
+
 }
 
-/* intro */
 
-.intro{
-max-width:800px;
-margin:100px auto;
-text-align:center;
-line-height:1.8;
+/* section */
+
+.section{
+
+padding:160px 0;
+
 }
 
-/* article cards */
-
-.articles{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:40px;
+.container{
 
 max-width:1200px;
-margin:80px auto;
+margin:auto;
+
+display:flex;
+gap:80px;
+align-items:center;
+
 }
 
-.card img{
+.container.reverse{
+
+flex-direction:row-reverse;
+
+}
+
+.image img{
+
 width:100%;
-height:220px;
-object-fit:cover;
+
 }
 
-.card h3{
-margin:10px 0;
+
+/* parallax */
+
+.parallax{
+
+height:80vh;
+
+background:url("../images/garden.jpg") center/cover fixed;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.parallax h2{
+
+color:white;
+font-size:50px;
+
+}
+
+
+/* footer */
+
+.footer{
+
+padding:60px;
+text-align:center;
+
+background:#111;
+color:white;
+
+}
+
+
+/* animation */
+
+.fade{
+
+opacity:0;
+transform:translateY(40px);
+
+transition:1.2s;
+
+}
+
+.fade.show{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+.fade-up{
+
+opacity:0;
+transform:translateY(60px);
+
+transition:1s;
+
+}
+
+.fade-up.show{
+
+opacity:1;
+transform:translateY(0);
+
 }
