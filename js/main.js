@@ -51,20 +51,19 @@ duration:0.8
 
 
 
-/* hero zoom */
-
 gsap.to(".hero-bg",{
 
 scrollTrigger:{
 trigger:".hero",
+start:"top top",
+end:"bottom top",
 scrub:true
 },
 
-scale:1.25,
+scale:1.35,
 y:-200
 
 })
-
 
 
 /* hero parallax layer */
