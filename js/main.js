@@ -5,10 +5,8 @@ gsap.registerPlugin(ScrollTrigger)
 const lenis = new Lenis()
 
 function raf(time){
-
 lenis.raf(time)
 requestAnimationFrame(raf)
-
 }
 
 requestAnimationFrame(raf)
@@ -30,6 +28,8 @@ duration:0.8
 
 
 
+/* hero scroll zoom */
+
 gsap.to(".hero-bg",{
 
 scrollTrigger:{
@@ -43,6 +43,7 @@ scale:1.35,
 y:-200
 
 })
+
 
 
 /* hero parallax layer */
@@ -90,7 +91,10 @@ stagger:0.2
 
 })
 
+
+
 /* loader */
+
 window.addEventListener("load",()=>{
 
 gsap.to("#loader",{
@@ -105,7 +109,7 @@ document.getElementById("loader").style.display="none"
 
 const tl = gsap.timeline({delay:0.5})
 
-tl.to(".hero-img",{
+tl.to(".hero-bg",{
 opacity:1,
 scale:1,
 duration:1.8,
