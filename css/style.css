@@ -76,7 +76,12 @@ background-repeat:no-repeat;
 
 .hero-bg{
 background-image:url("../images/hero.jpg");
-background-size:100vw auto;
+background-size:100vw auto;   /* 横幅基準 */
+background-position:center top;
+background-repeat:no-repeat;
+
+transform:scale(1);           /* 最初は等倍 */
+z-index:-3;
 }
 .hero-middle{
 background-image:url("../images/hero2.png");
