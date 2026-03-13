@@ -59,9 +59,22 @@ height:100%;
 object-fit:cover;
 
 opacity:0;
-transform:scale(1.05);
+transform:scale(1.08);
+}
 
-transition:opacity 2.5s ease;
+.hero-year{
+font-size:90px;
+letter-spacing:0.15em;
+opacity:0;
+transform:scale(0.8);
+}
+
+.hero-tag{
+font-size:28px;
+letter-spacing:0.35em;
+margin-top:20px;
+opacity:0;
+transform:translateY(30px);
 }
 /* hero */
 
