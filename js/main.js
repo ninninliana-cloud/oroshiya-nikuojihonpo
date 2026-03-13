@@ -2,7 +2,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 
 
-/* loader */
+/* loading */
 
 window.addEventListener("load",()=>{
 
@@ -31,7 +31,6 @@ const lenis = new Lenis()
 function raf(time){
 
 lenis.raf(time)
-
 requestAnimationFrame(raf)
 
 }
@@ -42,39 +41,52 @@ requestAnimationFrame(raf)
 
 /* split text */
 
-const split = new SplitType(".split",{types:"chars"})
-
+new SplitType(".split",{types:"chars"})
 
 
 gsap.from(".char",{
 
-opacity:0,
 y:60,
-stagger:0.04,
+opacity:0,
+stagger:0.03,
 duration:0.8
 
 })
 
 
 
-/* hero parallax */
+/* hero zoom */
 
-gsap.to(".hero-image",{
+gsap.to(".hero-bg",{
 
 scrollTrigger:{
-
 trigger:".hero",
 scrub:true
-
 },
 
+scale:1.2,
 y:-200
 
 })
 
 
 
-/* section fade */
+/* parallax */
+
+gsap.to(".parallax-img",{
+
+scrollTrigger:{
+trigger:".parallax",
+scrub:true
+},
+
+y:-250
+
+})
+
+
+
+/* section reveal */
 
 gsap.utils.toArray("section").forEach(section=>{
 
@@ -95,7 +107,7 @@ duration:1
 
 
 
-/* card animation */
+/* cards */
 
 gsap.from(".card",{
 
@@ -104,8 +116,26 @@ trigger:".cards",
 start:"top 80%"
 },
 
-y:100,
 opacity:0,
+y:100,
 stagger:0.2
+
+})
+
+
+
+/* header scroll */
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY > 50){
+
+document.querySelector(".header").classList.add("scrolled")
+
+}else{
+
+document.querySelector(".header").classList.remove("scrolled")
+
+}
 
 })
