@@ -145,3 +145,47 @@ y:-200,
 stagger:0.05
 
 })
+
+/* sticker click zoom */
+
+const stickers = document.querySelectorAll(".sticker")
+const lightbox = document.getElementById("lightbox")
+const lightboxImg = document.getElementById("lightbox-img")
+
+stickers.forEach(sticker=>{
+
+sticker.addEventListener("click",()=>{
+
+lightboxImg.src = sticker.src
+
+lightbox.classList.add("active")
+
+gsap.fromTo(lightboxImg,
+{
+scale:0.8,
+opacity:0
+},
+{
+scale:1,
+opacity:1,
+duration:0.5,
+ease:"power2.out"
+})
+
+})
+
+})
+
+lightbox.addEventListener("click",()=>{
+
+gsap.to(lightboxImg,{
+scale:0.8,
+opacity:0,
+duration:0.3,
+ease:"power2.in",
+onComplete:()=>{
+lightbox.classList.remove("active")
+}
+})
+
+})
