@@ -115,25 +115,34 @@ window.addEventListener("load",()=>{
 gsap.to("#loader",{
 opacity:0,
 duration:0.8,
-delay:0.5,
+delay:0.6,
 
 onComplete:()=>{
 document.getElementById("loader").style.display="none"
 }
 })
 
+const tl = gsap.timeline({delay:0.5})
 
-gsap.to(".hero-img",{
+tl.to(".hero-img",{
 opacity:1,
 scale:1,
-duration:1.6,
+duration:1.8,
 ease:"power2.out"
 })
 
-})
-gsap.from(".hero-inner",{
-opacity:0,
-y:40,
-delay:0.8,
-duration:1.2
+.to(".hero-year",{
+opacity:1,
+scale:1,
+duration:1.2,
+ease:"power3.out"
+},"-=1")
+
+.to(".hero-tag",{
+opacity:1,
+y:0,
+duration:1,
+ease:"power2.out"
+},"-=0.6")
+
 })
