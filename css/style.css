@@ -132,14 +132,6 @@ font-size:40px;
 margin-bottom:40px;
 }
 
-/* sticker section */
-
-.parallax{
-height:100vh;
-position:relative;
-overflow:hidden;
-background:#000;
-}
 
 /* sticker scroll section */
 
@@ -190,24 +182,22 @@ transform:translateX(-50%);
 
 /* random layout */
 
-.s1{ top:5%; left:5%; transform:rotate(-8deg);}
-.s2{ top:12%; left:40%; transform:rotate(7deg);}
-.s3{ top:20%; right:10%; transform:rotate(-5deg);}
-.s4{ top:35%; left:15%; transform:rotate(10deg);}
-.s5{ top:42%; right:25%; transform:rotate(-6deg);}
-.s6{ top:55%; left:5%; transform:rotate(4deg);}
-.s7{ top:60%; left:40%; transform:rotate(-12deg);}
-.s8{ top:65%; right:5%; transform:rotate(8deg);}
-
-.s9{ bottom:5%; left:10%; transform:rotate(-6deg);}
-.s10{ bottom:15%; left:35%; transform:rotate(5deg);}
-.s11{ bottom:20%; right:15%; transform:rotate(-9deg);}
-.s12{ bottom:30%; left:60%; transform:rotate(6deg);}
-.s13{ bottom:35%; left:20%; transform:rotate(-7deg);}
-.s14{ bottom:45%; right:5%; transform:rotate(11deg);}
-.s15{ bottom:50%; left:45%; transform:rotate(-4deg);}
-.s16{ bottom:60%; right:30%; transform:rotate(8deg);}
-
+.s1{ transform:rotate(-8deg);}
+.s2{ transform:rotate(7deg);}
+.s3{ transform:rotate(-5deg);}
+.s4{ transform:rotate(10deg);}
+.s5{ transform:rotate(-6deg);}
+.s6{ transform:rotate(4deg);}
+.s7{ transform:rotate(-12deg);}
+.s8{ transform:rotate(8deg);}
+.s9{ transform:rotate(-6deg);}
+.s10{ transform:rotate(5deg);}
+.s11{ transform:rotate(-9deg);}
+.s12{ transform:rotate(6deg);}
+.s13{ transform:rotate(-7deg);}
+.s14{ transform:rotate(11deg);}
+.s15{ transform:rotate(-4deg);}
+.s16{ transform:rotate(8deg);}
 /* services */
 
 .services{
