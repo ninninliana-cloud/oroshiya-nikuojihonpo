@@ -74,21 +74,7 @@ ease:"power2.out"
 
 })
 
-/* sticker parallax */
 
-gsap.to(".sticker",{
-
-scrollTrigger:{
-trigger:".parallax",
-start:"top bottom",
-end:"bottom top",
-scrub:true
-},
-
-y:-200,
-stagger:0.05
-
-})
 
 /* loader */
 
