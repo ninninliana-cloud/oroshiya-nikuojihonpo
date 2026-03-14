@@ -4,14 +4,13 @@ gsap.registerPlugin(ScrollTrigger)
 
 const lenis = new Lenis()
 
-function raf(time){
-lenis.raf(time)
-requestAnimationFrame(raf)
-}
+lenis.on("scroll", ScrollTrigger.update)
 
-requestAnimationFrame(raf)
+gsap.ticker.add((time)=>{
+lenis.raf(time * 1000)
+})
 
-
+gsap.ticker.lagSmoothing(0)
 
 /* text split */
 
@@ -22,11 +21,10 @@ gsap.from(".char",{
 y:60,
 opacity:0,
 stagger:0.04,
-duration:0.8
+duration:0.8,
+ease:"power2.out"
 
 })
-
-
 
 /* hero scroll zoom */
 
@@ -44,37 +42,20 @@ y:-200
 
 })
 
-
-
 /* hero parallax layer */
 
 gsap.to(".hero-middle",{
 
 scrollTrigger:{
 trigger:".hero",
+start:"top top",
+end:"bottom top",
 scrub:true
 },
 
 y:-150
 
 })
-
-
-
-/* parallax section */
-
-gsap.to(".parallax-img",{
-
-scrollTrigger:{
-trigger:".parallax",
-scrub:true
-},
-
-y:-250
-
-})
-
-
 
 /* cards animation */
 
@@ -87,11 +68,27 @@ start:"top 80%"
 
 opacity:0,
 y:80,
-stagger:0.2
+stagger:0.2,
+duration:1,
+ease:"power2.out"
 
 })
 
+/* sticker parallax */
 
+gsap.to(".sticker",{
+
+scrollTrigger:{
+trigger:".parallax",
+start:"top bottom",
+end:"bottom top",
+scrub:true
+},
+
+y:-200,
+stagger:0.05
+
+})
 
 /* loader */
 
@@ -132,20 +129,6 @@ ease:"power2.out"
 
 })
 
-gsap.to(".sticker",{
-
-scrollTrigger:{
-trigger:".parallax",
-start:"top bottom",
-end:"bottom top",
-scrub:true
-},
-
-y:-200,
-stagger:0.05
-
-})
-
 /* sticker click zoom */
 
 const stickers = document.querySelectorAll(".sticker")
@@ -176,6 +159,8 @@ ease:"power2.out"
 
 })
 
+/* lightbox close */
+
 lightbox.addEventListener("click",()=>{
 
 gsap.to(lightboxImg,{
@@ -183,9 +168,11 @@ scale:0.8,
 opacity:0,
 duration:0.3,
 ease:"power2.in",
+
 onComplete:()=>{
 lightbox.classList.remove("active")
 }
+
 })
 
 })
