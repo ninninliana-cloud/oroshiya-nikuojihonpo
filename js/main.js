@@ -7,34 +7,13 @@ const lenis = new Lenis({
   smooth: true
 })
 
-function raf(time){
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-}
-requestAnimationFrame(raf)
-
 lenis.on("scroll", ScrollTrigger.update)
 
-ScrollTrigger.scrollerProxy(document.body,{
-  scrollTop(value){
-    if(arguments.length){
-      lenis.scrollTo(value)
-    }
-    return window.scrollY
-  },
-  getBoundingClientRect(){
-    return {
-      top:0,
-      left:0,
-      width:window.innerWidth,
-      height:window.innerHeight
-    }
-  }
+// 🔥 ここが最重要（完全同期）
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
 })
-
-
-// これだけ残す
-ScrollTrigger.refresh()
+gsap.ticker.lagSmoothing(0)
 
 /* ================= 初期位置 ================= */
 
@@ -47,18 +26,18 @@ gsap.set(".loader-character",{
 
 window.addEventListener("DOMContentLoaded",()=>{
 
-  /* ===== loader ===== */
-
   const tl = gsap.timeline()
+
+  /* ===== loader ===== */
 
   tl.to(".loader-character",{
     x: window.innerWidth * 0.4,
-    duration:2.0,
+    duration:2.2,
     ease:"power1.inOut"
   })
   .to(".loader-character",{
     x:-600,
-    duration:2.6,
+    duration:2.8,
     ease:"power1.in"
   })
   .to("#loader",{
@@ -83,7 +62,7 @@ window.addEventListener("DOMContentLoaded",()=>{
 
   /* ===== hero 初期 ===== */
 
-  gsap.set(".hero-bg",{opacity:0, scale:1.2})
+  gsap.set(".hero-bg",{opacity:0, scale:1}) // ←ここも修正
   gsap.set(".hero-year",{opacity:0, scale:0.8})
   gsap.set(".hero-tag",{opacity:0, y:40})
 
@@ -92,7 +71,7 @@ window.addEventListener("DOMContentLoaded",()=>{
   tl.to(".hero-bg",{
     opacity:1,
     scale:1,
-    duration:1.8,
+    duration:1.6,
     ease:"power2.out"
   })
   .to(".hero-year",{
@@ -110,25 +89,25 @@ window.addEventListener("DOMContentLoaded",()=>{
 
   /* ================= scroll系 ================= */
 
-gsap.to(".hero-bg",{
-  scrollTrigger:{
-    trigger:".hero",
-    start:"top top",
-    end:"+=100%",
-    scrub:1
-  },
-  scale:1.1,
-  y:-150
-})
+  gsap.to(".hero-bg",{
+    scrollTrigger:{
+      trigger:".hero",
+      start:"top top",
+      end:"bottom top", // ←ここも修正
+      scrub:1
+    },
+    scale:1.08, // ←軽くした
+    y:-120
+  })
 
   gsap.to(".hero-middle",{
     scrollTrigger:{
       trigger:".hero",
       start:"top top",
       end:"bottom top",
-      scrub:true
+      scrub:1 // ←統一
     },
-    y:-150
+    y:-120
   })
 
   gsap.from(".card",{
