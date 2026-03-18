@@ -33,7 +33,7 @@ overflow:hidden;
 
 .loader-text{
 margin-bottom:40px;
-font-size:14px;
+font-size:20px;
 letter-spacing:2px;
 }
 
@@ -41,7 +41,7 @@ letter-spacing:2px;
 .loader-character{
 position:absolute;
 bottom:60px;
-right:-200px;
+left:0; /* ← 戻す */
 }
 
 /* 子：ぴょこぴょこ用（CSS） */
