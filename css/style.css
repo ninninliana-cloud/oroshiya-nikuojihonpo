@@ -19,20 +19,45 @@ overflow-x:hidden;
 
 #loader{
 position:fixed;
+top:0;
+left:0;
 width:100%;
-height:100vh;
-background:#000;
+height:100%;
+background:#0b0b0b;
 display:flex;
 align-items:center;
 justify-content:center;
+flex-direction:column;
 z-index:9999;
+overflow:hidden;
 }
 
 .loader-text{
-font-size:32px;
-letter-spacing:8px;
+margin-bottom:40px;
+font-size:14px;
+letter-spacing:2px;
 }
 
+/* キャラ */
+.loader-character{
+position:absolute;
+bottom:60px;
+left:-200px; /* 最初は画面外 */
+}
+
+.loader-character img{
+width:120px;
+
+/* 足踏み感（擬似） */
+animation: run 0.5s infinite alternate;
+}
+
+/* 上下に揺らすだけで走ってる感出る */
+
+@keyframes run{
+0%{ transform: translateY(0px) rotate(-2deg); }
+100%{ transform: translateY(-8px) rotate(2deg); }
+}
 /* header */
 
 .header{
