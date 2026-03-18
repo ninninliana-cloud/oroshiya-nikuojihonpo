@@ -51,7 +51,10 @@ width:120px;
 /* 足踏み感（擬似） */
 animation: run 0.5s infinite alternate;
 }
-
+.loader-character img{
+width:120px;
+height:auto;
+}
 /* 上下に揺らすだけで走ってる感出る */
 
 @keyframes run{
