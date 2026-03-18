@@ -36,14 +36,12 @@ margin-bottom:40px;
 font-size:20px;
 letter-spacing:2px;
 }
-.loader-character{
-opacity:0;
-}
-/* 親：横移動用（GSAP） */
+
 .loader-character{
 position:absolute;
 bottom:60px;
-left:0; /* ← 戻す */
+left:0;
+opacity:0;
 }
 
 /* 子：ぴょこぴょこ用（CSS） */
@@ -57,11 +55,11 @@ width:auto;
 display:block;
 }
 
-/* 走ってる感 */
 @keyframes run{
 0%{ transform: translateY(0px) rotate(-2deg); }
 100%{ transform: translateY(-4px) rotate(2deg); }
 }
+
 /* ================= header ================= */
 
 .header{
