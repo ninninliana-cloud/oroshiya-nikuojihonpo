@@ -11,6 +11,27 @@ gsap.ticker.add((time)=>{
 })
 
 gsap.ticker.lagSmoothing(0)
+ScrollTrigger.scrollerProxy(document.body, {
+  scrollTop(value) {
+    if (arguments.length) {
+      lenis.scrollTo(value)
+    } else {
+      return lenis.scroll.instance.scroll.y
+    }
+  },
+  getBoundingClientRect() {
+    return {
+      top: 0,
+      left: 0,
+      width: window.innerWidth,
+      height: window.innerHeight
+    }
+  }
+})
+
+ScrollTrigger.addEventListener("refresh", () => lenis.update())
+
+ScrollTrigger.refresh()
 
 /* ================= loader → 全開始 ================= */
 
