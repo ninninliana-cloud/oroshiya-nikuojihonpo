@@ -1,6 +1,6 @@
 gsap.registerPlugin(ScrollTrigger)
 
-/* ================= Lenis（完全版） ================= */
+/* ================= Lenis ================= */
 
 const lenis = new Lenis({
   duration: 1.2,
@@ -15,7 +15,6 @@ requestAnimationFrame(raf)
 
 lenis.on("scroll", ScrollTrigger.update)
 
-/* ScrollTriggerと同期 */
 ScrollTrigger.scrollerProxy(document.body,{
   scrollTop(value){
     if(arguments.length){
@@ -34,62 +33,22 @@ ScrollTrigger.scrollerProxy(document.body,{
 })
 
 ScrollTrigger.addEventListener("refresh", ()=> lenis.update())
-ScrollTrigger.refresh()
 
-/* ================= loader 初期位置（絶対先に） ================= */
+/* ================= 初期位置 ================= */
 
 gsap.set(".loader-character",{
   x: window.innerWidth + 500,
   opacity:1
 })
 
-/* ================= scroll系（外で作る） ================= */
+/* ================= DOM読み込み後 ================= */
 
-/* hero zoom */
-gsap.to(".hero-bg",{
-  scrollTrigger:{
-    trigger:".hero",
-    start:"top top",
-    end:"bottom top",
-    scrub:true,
-    invalidateOnRefresh:true
-  },
-  scale:1.35,
-  y:-200
-})
+window.addEventListener("DOMContentLoaded",()=>{
 
-/* hero parallax */
-gsap.to(".hero-middle",{
-  scrollTrigger:{
-    trigger:".hero",
-    start:"top top",
-    end:"bottom top",
-    scrub:true,
-    invalidateOnRefresh:true
-  },
-  y:-150
-})
-
-/* cards */
-gsap.from(".card",{
-  scrollTrigger:{
-    trigger:".cards",
-    start:"top 80%"
-  },
-  opacity:0,
-  y:80,
-  stagger:0.2,
-  duration:1,
-  ease:"power2.out"
-})
-
-/* ================= main（ロード後） ================= */
-
-window.addEventListener("load",()=>{
+  /* ===== loader ===== */
 
   const tl = gsap.timeline()
 
-  /* キャラ走る */
   tl.to(".loader-character",{
     x: window.innerWidth * 0.4,
     duration:2.0,
@@ -100,8 +59,6 @@ window.addEventListener("load",()=>{
     duration:2.6,
     ease:"power1.in"
   })
-
-  /* ローダー消える */
   .to("#loader",{
     opacity:0,
     duration:0.8,
@@ -110,7 +67,7 @@ window.addEventListener("load",()=>{
     }
   })
 
-  /* ===== 本編 ===== */
+  /* ===== text ===== */
 
   new SplitType(".split",{types:"chars"})
 
@@ -122,12 +79,14 @@ window.addEventListener("load",()=>{
     ease:"power2.out"
   })
 
-  /* hero 初期状態 */
+  /* ===== hero 初期 ===== */
+
   gsap.set(".hero-bg",{opacity:0, scale:1.2})
   gsap.set(".hero-year",{opacity:0, scale:0.8})
   gsap.set(".hero-tag",{opacity:0, y:40})
 
-  /* hero 登場 */
+  /* ===== hero 登場 ===== */
+
   tl.to(".hero-bg",{
     opacity:1,
     scale:1,
@@ -146,6 +105,43 @@ window.addEventListener("load",()=>{
     duration:1,
     ease:"power2.out"
   },"-=0.6")
+
+  /* ================= scroll系 ================= */
+
+  gsap.to(".hero-bg",{
+    scrollTrigger:{
+      trigger:".hero",
+      start:"top top",
+      end:"bottom top",
+      scrub:true
+    },
+    scale:1.35,
+    y:-200
+  })
+
+  gsap.to(".hero-middle",{
+    scrollTrigger:{
+      trigger:".hero",
+      start:"top top",
+      end:"bottom top",
+      scrub:true
+    },
+    y:-150
+  })
+
+  gsap.from(".card",{
+    scrollTrigger:{
+      trigger:".cards",
+      start:"top 80%"
+    },
+    opacity:0,
+    y:80,
+    stagger:0.2,
+    duration:1,
+    ease:"power2.out"
+  })
+
+  ScrollTrigger.refresh()
 
 })
 
