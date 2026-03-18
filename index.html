@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 
 <head>
@@ -11,29 +10,34 @@
 
 <link rel="stylesheet" href="css/style.css">
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<!-- フォントはここ -->
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&display=swap" rel="stylesheet">
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<!-- JSはdeferで安定 -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.29/bundled/lenis.min.js" defer></script>
+<script src="https://unpkg.com/split-type" defer></script>
 
-<script src="https://unpkg.com/@studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-
-<script src="https://unpkg.com/split-type"></script>
+<script src="js/main.js" defer></script>
 
 </head>
 
 <body>
 
-<!-- loading -->
+<!-- ================= loader ================= -->
 
 <div id="loader">
   <div class="loader-text">読み込み中</div>
 
   <div class="loader-character">
-    <img src="images/chibi.png" alt="character">
+    <div class="chibi-inner">
+      <img src="images/chibi.png" alt="character">
+    </div>
   </div>
 </div>
 
-<!-- header -->
+<!-- ================= header ================= -->
 
 <header class="header">
 
@@ -48,7 +52,7 @@
 
 </header>
 
-<!-- hero -->
+<!-- ================= hero ================= -->
 
 <section class="hero">
 
@@ -57,15 +61,13 @@
 <div class="hero-layer hero-overlay"></div>
 
 <div class="hero-inner">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&display=swap" rel="stylesheet">
 <h1 class="hero-year">卸屋</h1>
 <p class="hero-tag">肉おじ本舗</p>
-
 </div>
 
 </section>
 
-<!-- about -->
+<!-- ================= about ================= -->
 
 <section class="about">
 
@@ -74,31 +76,29 @@
 <h2 class="split">ABOUT</h2>
 
 <p>
-
 KATACityで採取される各種資材を対象に、
 買取および販売を行う資材専門の卸売業者です。<br><br>
 
 幅広い資材を安定して取り扱う体制と
 大口取引にも対応可能な物流力を強みとし
 街の経済活動を支える存在として運営しています。
-
 </p>
 
 </div>
 
 </section>
 
-<!-- sticker scroll -->
+<!-- ================= sticker ================= -->
 
 <section class="parallax">
 
 <div class="sticker-layer">
 
-<!-- 1セット目 -->
 <p>
 オリジナルデコトラックデザイン<br><br>
-
 </p>
+
+<!-- 1セット -->
 <img src="images/stickers1.png" class="sticker">
 <img src="images/stickers2.png" class="sticker">
 <img src="images/stickers3.png" class="sticker">
@@ -117,8 +117,7 @@ KATACityで採取される各種資材を対象に、
 <img src="images/stickers15.png" class="sticker">
 <img src="images/stickers16.png" class="sticker">
 
-<!-- 2セット目（無限スクロール用） -->
-
+<!-- 2セット（ループ） -->
 <img src="images/stickers1.png" class="sticker">
 <img src="images/stickers2.png" class="sticker">
 <img src="images/stickers3.png" class="sticker">
@@ -141,7 +140,7 @@ KATACityで採取される各種資材を対象に、
 
 </section>
 
-<!-- service -->
+<!-- ================= service ================= -->
 
 <section class="services">
 
@@ -152,33 +151,18 @@ KATACityで採取される各種資材を対象に、
 <div class="cards">
 
 <div class="card">
-
-<div class="card-img">
-<img src="images/service1.jpg" alt="">
-</div>
-
+<div class="card-img"><img src="images/service1.jpg"></div>
 <h3>資材の販売</h3>
-
 </div>
 
 <div class="card">
-
-<div class="card-img">
-<img src="images/service2.jpg" alt="">
-</div>
-
+<div class="card-img"><img src="images/service2.jpg"></div>
 <h3>資材の買取</h3>
-
 </div>
 
 <div class="card">
-
-<div class="card-img">
-<img src="images/service3.jpg" alt="">
-</div>
-
+<div class="card-img"><img src="images/service3.jpg"></div>
 <h3>定期契約納品</h3>
-
 </div>
 
 </div>
@@ -187,7 +171,7 @@ KATACityで採取される各種資材を対象に、
 
 </section>
 
-<!-- news -->
+<!-- ================= news ================= -->
 
 <section class="news">
 
@@ -196,35 +180,26 @@ KATACityで採取される各種資材を対象に、
 <h2 class="split">NEWS</h2>
 
 <ul>
-
 <li><span>2026</span> お知らせ　スポンサード企業様募集のお知らせ</li>
 <li><span>2026</span> お知らせ　会社概要を更新</li>
 <li><span>2026</span> お知らせ　HPの公開</li>
-
 </ul>
 
 </div>
 
 </section>
 
-<!-- footer -->
+<!-- ================= footer ================= -->
 
 <footer>
-
-<div class="footer-inner">
-katacity network
-</div>
-
+<div class="footer-inner">katacity network</div>
 </footer>
 
-<!-- lightbox -->
+<!-- ================= lightbox ================= -->
 
 <div id="lightbox">
 <img id="lightbox-img">
 </div>
 
-<script src="js/main.js"></script>
-
 </body>
-
 </html>
