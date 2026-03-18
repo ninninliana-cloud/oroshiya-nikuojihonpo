@@ -39,20 +39,23 @@ window.addEventListener("load", () => {
 
   const tl = gsap.timeline()
 
-  /* 初期位置を確実に右外へ（TLに入れる） */
-  tl.set(".loader-character", {
-    x: window.innerWidth + 300
-  })
+/* ←ここは外に出す */
+gsap.set(".loader-character", {
+  x: window.innerWidth + 400
+})
 
-  /* 走る */
-  .to(".loader-character", {
+document.addEventListener("DOMContentLoaded", () => {
+
+  const tl = gsap.timeline()
+
+  tl.to(".loader-character", {
     x: window.innerWidth * 0.4,
     duration: 2.0,
     ease: "power1.inOut"
   })
   .to(".loader-character", {
-    x: -400,
-    duration: 2.4,
+    x: -500,
+    duration: 2.6,
     ease: "power1.in"
   })
 
