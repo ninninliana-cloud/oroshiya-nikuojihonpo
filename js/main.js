@@ -78,17 +78,30 @@ ease:"power2.out"
 
 /* loader */
 
-window.addEventListener("load",()=>{
+window.addEventListener("load", () => {
 
-gsap.to("#loader",{
-opacity:0,
-duration:0.8,
-delay:0.6,
-
-onComplete:()=>{
-document.getElementById("loader").style.display="none"
-}
+  // キャラ走る
+ gsap.timeline()
+.to(".loader-character", {
+  x: window.innerWidth * 0.5,
+  duration: 1.2
 })
+.to(".loader-character", {
+  x: window.innerWidth + 300,
+  duration: 1.3
+});
+
+  // ローダー消す
+  gsap.to("#loader", {
+    opacity: 0,
+    duration: 0.8,
+    delay: 2.5,
+    onComplete: () => {
+      document.getElementById("loader").style.display = "none";
+    }
+  });
+
+});
 
 const tl = gsap.timeline({delay:0.5})
 
